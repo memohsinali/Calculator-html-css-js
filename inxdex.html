@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <main>
+        <div class="container">
+
+
+            <div class="convert">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    onclick="hideConversions()" style="margin-right: 90%;" fill="#5f6368">
+                    <path
+                        d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                </svg>
+
+                <h3>Unit Convert</h3>
+
+                <div>
+
+                    <input onclick="calcLength()" type="button" value="length" id="length" class="buttonConvert">
+
+                </div>
+
+                <div>
+                    <input onclick="calcSpeed()" type="button" value="speed" id="speed" class="buttonConvert">
+                </div>
+
+                <div>
+                    <input onclick="calcTemperature()" type="button" value="temperature" id="temperature"
+                        class="buttonConvert">
+                </div>
+
+                <div>
+                    <input onclick="calcWeight()" type="button" value="weight" id="length" class="buttonConvert">
+                </div>
+
+
+
+            </div>
+
+
+            <div class="Calculator">
+
+                <div class="bar">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" height="24px" viewBox="0 -960 960 960"
+                        onclick="showConversions()" width="24px" fill="#5f6368">
+                        <path
+                            d="M666-440 440-666l226-226 226 226-226 226Zm-546-80v-320h320v320H120Zm400 400v-320h320v320H520Zm-400 0v-320h320v320H120Zm80-480h160v-160H200v160Zm467 48 113-113-113-113-113 113 113 113Zm-67 352h160v-160H600v160Zm-400 0h160v-160H200v160Zm160-400Zm194-65ZM360-360Zm240 0Z" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" height="24px" viewBox="0 -960 960 960"
+                        width="24px" fill="#5f6368">
+                        <path
+                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
+                    </svg>
+
+                </div>
+
+                <div>
+                    <input type="text" name="display" id="display" readonly>
+                </div>
+
+                <div>
+                    <input type="button" id="AC" value="AC" class="button" onclick="clearDisplay()">
+                    <input type="button" id="%" value="%" class="button" onclick="appendToDisplay('%')">
+                    <input type="button" id="back" value="&#9003" class="button" onclick="backspace()">
+                    <input type="button" id="/" value="/" class="button" onclick="appendToDisplayOperator('/')">
+                </div>
+
+                <div>
+                    <input onclick="appendToDisplay('7')" type="button" id="7" value="7" class="button">
+                    <input onclick="appendToDisplay('8')" type="button" id="8" value="8" class="button">
+                    <input onclick="appendToDisplay('9')" type="button" id="9" value="9" class="button">
+                    <input onclick="appendToDisplayOperator('*')" type="button" id="*" value="*" class="button">
+                </div>
+
+                <div>
+                    <input onclick="appendToDisplay('4')" type="button" id="4" value="4" class="button">
+                    <input onclick="appendToDisplay('5')" type="button" id="5" value="5" class="button">
+                    <input onclick="appendToDisplay('6')" type="button" id="6" value="6" class="button">
+                    <input onclick="appendToDisplayOperator('-')" type="button" id="-" value="-" class="button">
+                </div>
+
+                <div>
+                    <input onclick="appendToDisplay('1')" type="button" id="1" value="1" class="button">
+                    <input onclick="appendToDisplay('2')" type="button" id="2" value="2" class="button">
+                    <input onclick="appendToDisplay('3')" type="button" id="3" value="3" class="button">
+                    <input onclick="appendToDisplayOperator('+')" type="button" id="+" value="+" class="button">
+                </div>
+
+                <div>
+                    <input onclick="appendToDisplay('00')" type="button" id="00" value="00" class="button">
+                    <input onclick="appendToDisplay('0')" type="button" id="0" value="0" class="button">
+                    <input onclick="appendToDisplay('.')" type="button" id="." value="." class="button">
+                    <input onclick="calculateResult()" type="button" id="=" value="=" class="button">
+                </div>
+            </div>
+
+            <div class="length">
+                <form id="CalculateLength">
+
+                    <svg onclick="hideCalculateLength()" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 -960 960 960" width="24px" fill="black"
+                        style="padding-bottom: 5%; margin-bottom:20px;" fill="#5f6368">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                    </svg>
+
+                    <label for="lengthfrom">From</label>
+                    <select id="lengthfrom" name="from">
+                        <option value="meter">meter(m)</option>
+                        <option value="kilometer">kilometer(km)</option>
+                        <option value="centimeter">centimeter(cm)</option>
+                    </select>
+
+                    <label for="lengthto">To</label>
+                    <select id="lengthto" name="to">
+                        <option value="meter">meter(m)</option>
+                        <option value="kilometer">kilometer(km)</option>
+                        <option value="centimeter">centimeter(cm)</option>
+                    </select>
+
+                    <input type="text" name="enter" id="lengthenter" placeholder="Enter here">
+
+                    <input style="background-color: green;" onclick="evaluateLength(event)" type="submit" value="Calculate">
+                    <label for="result">RESULT</label>
+                    <input type="text" id="lengthresult" name="result" readonly>
+                </form>
+            </div>
+
+
+            <div class="weight">
+                <form id="CalculateWeight">
+
+                    <svg onclick="hideCalculateWeight()" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 -960 960 960" width="24px" fill="black"
+                        style="padding-bottom: 5%; margin-bottom:20px;" fill="#5f6368">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                    </svg>
+
+                    <label for="weigthfrom">From</label>
+                    <select id="weightfrom" name="from">
+                        <option value="gram">gram(g)</option>
+                        <option value="kilogram">kilogram(kg)</option>
+                        <option value="miligram">miligram(mg)</option>
+                    </select>
+
+                    <label for="weightto">To</label>
+                    <select id="weightto" name="to">
+                        <option value="gram">gram(g)</option>
+                        <option value="kilogram">kilogram(kg)</option>
+                        <option value="miligram">miligram(mg)</option>
+                    </select>
+
+                    <input type="text" name="enter" id="weightenter" placeholder="Enter here">
+
+                    <input style="background-color: green;" onclick="evaluateWeight(event)" type="submit" value="Calculate">
+                    <label for="result">RESULT</label>
+                    <input type="text" id="weightresult" name="result" readonly>
+                </form>
+            </div>
+
+
+
+            <div class="temperature">
+                <form id="CalculateTemperature">
+                    <svg onclick="hideCalculateTemp()" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 -960 960 960" width="24px" fill="black"
+                        style="padding-bottom: 5%; margin-bottom:20px;" fill="#5f6368">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                    </svg>
+
+                    <label for="tempfrom">From</label>
+                    <select id="tempfrom" name="from">
+                        <option value="Celsius">Celsius</option>
+                        <option value="Fahrenheit">Fahrenheit</option>
+                    </select>
+
+                    <label for="tempto">To</label>
+                    <select id="tempto" name="to">
+                        <option value="Celsius">Celsius</option>
+                        <option value="Fahrenheit">Fahrenheit</option>
+                    </select>
+
+                    <input type="text" name="enter" id="tempenter" placeholder="Enter here">
+
+                    <input style="background-color: green;" onclick="evaluateTemperature(event)" type="submit" value="Calculate">
+                    <label for="result">RESULT</label>
+                    <input type="text" id="tempresult" name="result" readonly>
+                </form>
+            </div>
+
+
+
+            <div class="speed">
+                <form id="CalculateSpeed">
+
+                    <svg onclick="hideCalculateSpeed()" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 -960 960 960" width="24px" fill="black"
+                        style="padding-bottom: 5%; margin-bottom:20px;" fill="#5f6368">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                    </svg>
+
+                    <label for="speedfrom">From</label>
+                    <select id="speedfrom" name="from">
+                        <option value="kmh">km/h</option>
+                        <option value="mph">mph</option>
+                        <option value="kms">km/s</option>
+                        <option value="mps">meter/s</option>
+                    </select>
+
+                    <label for="speedto">To</label>
+                    <select id="speedto" name="to">
+                        <option value="kmh">km/h</option>
+                        <option value="mph">mph</option>
+                        <option value="kms">km/s</option>
+                        <option value="mps">meter/s</option>
+                    </select>
+
+                    <input type="text" name="enter" id="speedenter" placeholder="Enter here">
+
+                    <input style="background-color: green;" onclick="evaluateSpeed(event)" type="submit" value="Calculate">
+                    <label for="result">RESULT</label>
+                    <input type="text" id="speedresult" name="result" readonly>
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
